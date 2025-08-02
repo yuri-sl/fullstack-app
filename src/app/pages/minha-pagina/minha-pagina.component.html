@@ -1,0 +1,32 @@
+<p>minha-pagina works!</p>
+<h1>Testando aqui um novo Header</h1>
+
+<h1>Cadastro de usuário</h1>
+<form [formGroup]="usuarioForm" (ngSubmit)="enviarUsuario()">
+  <label for="name">Nome:</label>
+  <input id="name" formControlName="name" />
+  <br /><br />
+  <label for="age">Idade:</label>
+  <input id="age" formControlName="age" type="number" />
+  <br /><br />
+  <button type="submit">Enviar usuário</button>
+</form>
+
+<h1>Visualizar Usuários no sistema</h1>
+
+<h1>Remover Usuário Cadastrado</h1>
+
+<button>Remover Usuário</button>
+
+<h1>Alterar o Usuário cadastrado</h1>
+<form [formGroup]="usuarioEditForm" (ngSubmit)="alterarUsuario()">
+  <label for="id">Id:</label>
+  <input id="id" formControlName="id" type="number" />
+  <label for="name">Nome:</label>
+  <input id="name" formControlName="name" />
+  <br /><br />
+  <label for="age">Idade:</label>
+  <input id="age" formControlName="age" type="number" />
+  <br /><br />
+  <button type="submit">Alterar usuário</button>
+</form>
