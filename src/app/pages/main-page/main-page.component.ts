@@ -6,6 +6,7 @@ import { ToastModule } from 'primeng/toast';
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
+import { SplitterModule } from 'primeng/splitter';
 
 let clientes = [
   { nome: 'Maria', email: 'maria@email.com' },
@@ -14,7 +15,13 @@ let clientes = [
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [ButtonModule, InputTextModule, TableModule, ToastModule],
+  imports: [
+    ButtonModule,
+    InputTextModule,
+    TableModule,
+    ToastModule,
+    SplitterModule,
+  ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })

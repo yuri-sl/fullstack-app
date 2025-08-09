@@ -19,6 +19,14 @@ body {
   color: #fff;
 }
 
+.panel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100vw;
+}
+
 /* cartão com efeito glass */
 
 .glass {
