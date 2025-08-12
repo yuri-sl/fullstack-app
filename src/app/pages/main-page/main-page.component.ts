@@ -7,11 +7,27 @@ import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
 import { SplitterModule } from 'primeng/splitter';
+import { CarouselModule } from 'primeng/carousel';
+import { DividerModule } from 'primeng/divider';
+import { AccordionModule } from 'primeng/accordion';
+import { TabsModule } from 'primeng/tabs';
 
 let clientes = [
   { nome: 'Maria', email: 'maria@email.com' },
   { nome: 'João', email: 'joao@email.com' },
 ];
+
+type Inventory = 'INSTOCK' | 'LOWSTOCK' | 'OUTOFSTOCK';
+
+interface Product {
+  id: string;
+  name: string;
+  image: string;
+  price: string;
+  inventoryStatus: Inventory;
+  desc: string;
+}
+
 @Component({
   selector: 'app-main-page',
   standalone: true,
@@ -21,8 +37,70 @@ let clientes = [
     TableModule,
     ToastModule,
     SplitterModule,
+    CarouselModule,
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
-export class MainPageComponent {}
+export class MainPageComponent {
+  products: Product[] = [
+    {
+      id: '1000',
+      name: 'OblivionFight#1',
+      image: 'images/combat.jpg',
+      price: '120',
+      inventoryStatus: 'INSTOCK',
+      desc: 'Vivencie lutas',
+    },
+    {
+      id: '100',
+      name: 'OblivionFight#',
+      image: 'images/OR_LargeHero_DeepDive.png',
+      price: '127',
+      inventoryStatus: 'INSTOCK',
+      desc: 'Meet a wonderful scenery',
+    },
+    {
+      id: '100',
+      name: 'OblivionFight#',
+      image: '/combat2.jpg',
+      price: '127',
+      inventoryStatus: 'INSTOCK',
+      desc: 'This is YOUR fight',
+    },
+    {
+      id: '100',
+      name: 'OblivionFight#2',
+      image: 'images/oblivionWP.jpeg',
+      price: '127',
+      inventoryStatus: 'INSTOCK',
+      desc: 'Uncover the secrets of Oblivion',
+    },
+    {
+      id: '100',
+      name: 'OblivionFight#',
+      image: 'images/oblivionGate.avif',
+      price: '127',
+      inventoryStatus: 'INSTOCK',
+      desc: 'Destroy the Gates',
+    },
+    {
+      id: '100',
+      name: 'OblivionFight#',
+      image: 'images/GateBattle.png',
+      price: '127',
+      inventoryStatus: 'INSTOCK',
+      desc: 'Fight Demons',
+    },
+  ];
+  responsiveOptions = [
+    { breakpoint: '1199px', numVisible: 3, numScroll: 3 },
+    { breakpoint: '991px', numVisible: 2, numScroll: 2 },
+    { breakpoint: '575px', numVisible: 1, numScroll: 1 },
+  ];
+  getSeverity(status: Inventory) {
+    if (status === 'INSTOCK') return 'success';
+    if (status === 'LOWSTOCK') return 'warning';
+    return 'danger';
+  }
+}

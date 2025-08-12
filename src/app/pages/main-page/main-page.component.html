@@ -1,37 +1,63 @@
 <div class="hero">
-  <img src="images/oblivionWP.jpeg" alt="background" class="bg-image" />
+  <img src="/images/oblivionWP.jpeg" alt="background" class="bg-image" />
   <div class="glass">
-    <h1 class="title">
-      Bem-vindo
+    <h1 class="title">Bem-vindo</h1>
 
-      <p>main-page works!</p>
-      <p-button
-        label="Clique aqui"
-        icon="pi pi-check"
-        class="p-button-success"
-      ></p-button>
-      <div class="p-field">
-        <label for="nome">Nome:</label>
-        <input id="nome" type="text" pInputText placeholder="Digite seu nome" />
-      </div>
-      <i class="pi pi-check" style="font-size: 2.5rem"></i>
-      <i class="pi pi-times"></i>
-      <span class="pi pi-search"></span>
-      <span class="pi pi-user"></span>
-      <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
-      <i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
-    </h1>
+    <p>main-page works!</p>
+    <p-button
+      label="Clique aqui"
+      icon="pi pi-check"
+      class="p-button-success"
+    ></p-button>
+
+    <div class="p-field">
+      <label for="nome">Nome:</label>
+      <input id="nome" type="text" pInputText placeholder="Digite seu nome" />
+    </div>
+
+    <i class="pi pi-check" style="font-size: 2.5rem"></i>
+    <i class="pi pi-times"></i>
+    <span class="pi pi-search"></span>
+    <span class="pi pi-user"></span>
+    <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+    <i class="pi pi-spin pi-cog" style="font-size: 2rem"></i>
   </div>
-  <p-splitter [style]="{ height: '300px' }" class="mb-8">
-    <ng-template #panel>
-      <div class="panel-content">
-        <img src="images/combat.jpg" />
-      </div>
-    </ng-template>
-    <ng-template #panel>
-      <div class="panel-content">
-        <h2>Imagem</h2>
-      </div>
-    </ng-template>
-  </p-splitter>
 </div>
+<p-splitter [gutterSize]="0" [panelSizes]="[40, 60]">
+  <ng-template #panel>
+    <div class="panel-content">
+      <img
+        src="assets/images/combat.jpg"
+        alt="combat-oblivion"
+        class="panel-img-1"
+      />
+    </div>
+  </ng-template>
+  <ng-template #panel>
+    <div class="panel-content">
+      <h2>Cadastrar um novo guerreiro</h2>
+      <h3>Nome</h3>
+      <input />
+      <h3>Email</h3>
+      <input />
+      <h3>Senha</h3>
+      <input type="password" />
+    </div>
+  </ng-template>
+</p-splitter>
+<h1>Meet Cyrodiil!</h1>
+<p-carousel
+  [value]="products"
+  [numVisible]="4"
+  [numScroll]="3"
+  [responsiveOptions]="responsiveOptions"
+>
+  <ng-template pTemplate="item" let-product>
+    <div class="card">
+      <div class="img-wrap">
+        <img [src]="product.image" [alt]="product.name" loading="lazy" />
+        <h3 class="product-desc">{{ product.desc }}</h3>
+      </div>
+    </div>
+  </ng-template>
+</p-carousel>
