@@ -58,11 +58,6 @@ body {
   filter: brightness(0.5);
 }
 
-.panel-img-1 {
-  width: 100%;
-  height: 100%;
-}
-
 .p-field {
   margin: 1rem 0 1.5rem;
   label {
@@ -97,8 +92,22 @@ body {
   }
 }
 
-.p-splitter {
-  margin-top: 2rem;
+section {
+  place-items: center;
+}
+
+.destaque {
+  background-color: rgba(0, 0, 0, 0.25);
+  .p-splitter {
+    align-items: center;
+    margin-top: 2rem;
+    width: 100rem;
+    height: 580px;
+    .panel-img-1 {
+      width: 100%;
+      height: 100%;
+    }
+  }
 }
 
 .icons {

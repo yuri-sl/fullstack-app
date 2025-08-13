@@ -23,7 +23,13 @@
     <div class="actions">
       <input pInputText type="text" placeholder="Buscar..." />
       <p-button icon="pi pi-plus" label="Novo" />
-      <p-button icon="pi pi-user" label="Fazer Login" />
+      <p-button
+        icon="pi pi-user"
+        label="Fazer Login"
+        [rounded]="true"
+        [raised]="true"
+        [routerLink]="['/login-page']"
+      />
     </div>
   </ng-template>
 </p-menubar>

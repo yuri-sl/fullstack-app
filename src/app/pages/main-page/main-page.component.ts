@@ -46,7 +46,7 @@ export class MainPageComponent {
   products: Product[] = [
     {
       id: '1000',
-      name: 'OblivionFight#1',
+      name: 'OblivionImage#1',
       image: 'images/combat.jpg',
       price: '120',
       inventoryStatus: 'INSTOCK',
@@ -54,7 +54,7 @@ export class MainPageComponent {
     },
     {
       id: '100',
-      name: 'OblivionFight#',
+      name: 'OblivionImage#2',
       image: 'images/OR_LargeHero_DeepDive.png',
       price: '127',
       inventoryStatus: 'INSTOCK',
@@ -62,15 +62,15 @@ export class MainPageComponent {
     },
     {
       id: '100',
-      name: 'OblivionFight#',
-      image: '/combat2.jpg',
+      name: 'OblivionImage#3',
+      image: 'images/imperialCity.jpeg',
       price: '127',
       inventoryStatus: 'INSTOCK',
       desc: 'This is YOUR fight',
     },
     {
       id: '100',
-      name: 'OblivionFight#2',
+      name: 'OblivionImage#4',
       image: 'images/oblivionWP.jpeg',
       price: '127',
       inventoryStatus: 'INSTOCK',
@@ -78,7 +78,7 @@ export class MainPageComponent {
     },
     {
       id: '100',
-      name: 'OblivionFight#',
+      name: 'OblivionImage#5',
       image: 'images/oblivionGate.avif',
       price: '127',
       inventoryStatus: 'INSTOCK',
@@ -86,7 +86,7 @@ export class MainPageComponent {
     },
     {
       id: '100',
-      name: 'OblivionFight#',
+      name: 'OblivionImage#6',
       image: 'images/GateBattle.png',
       price: '127',
       inventoryStatus: 'INSTOCK',
