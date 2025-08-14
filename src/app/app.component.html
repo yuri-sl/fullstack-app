@@ -22,14 +22,16 @@
   <ng-template #end>
     <div class="actions">
       <input pInputText type="text" placeholder="Buscar..." />
-      <p-button icon="pi pi-plus" label="Novo" />
+      <p-button icon="pi pi-plus" label="Novo" *ngIf="onLoginPage" />
       <p-button
         icon="pi pi-user"
         label="Fazer Login"
+        *ngIf="onLoginPage"
         [rounded]="true"
         [raised]="true"
         [routerLink]="['/login-page']"
       />
+      <p-button label="Voltar" *ngIf="!onLoginPage"> </p-button>
     </div>
   </ng-template>
 </p-menubar>
