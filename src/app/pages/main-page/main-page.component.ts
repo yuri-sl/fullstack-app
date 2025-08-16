@@ -3,6 +3,7 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
+import { CommonModule } from '@angular/common';
 import { ApplicationConfig } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
@@ -38,11 +39,13 @@ interface Product {
     ToastModule,
     SplitterModule,
     CarouselModule,
+    CommonModule,
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
 export class MainPageComponent {
+  changeButtonState = false;
   products: Product[] = [
     {
       id: '1000',
@@ -102,5 +105,9 @@ export class MainPageComponent {
     if (status === 'INSTOCK') return 'success';
     if (status === 'LOWSTOCK') return 'warning';
     return 'danger';
+  }
+  changeButtonStateFunction() {
+    console.log('I was clicked!');
+    this.changeButtonState = !this.changeButtonState;
   }
 }
