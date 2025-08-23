@@ -1,79 +1,27 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
 <p-menubar [model]="shortcutItems" class="topbar">
-  <ng-template #start>
-    <div class="angular-logo">
-      <img src="/images/logo.jpg" alt="logo" />
-    </div>
-    <nav class="shortcuts">
-      <a routerLink="/" class="link">Dashboard</a>
-      <a routerLink="/clientes" class="link">Clientes</a>
-      <a routerLink="/produtos" class="link">Produtos</a>
-      <a routerLink="/vendas" class="link">Vendas</a>
-    </nav>
-  </ng-template>
-  <ng-template #end>
-    <div class="actions">
-      <input pInputText type="text" placeholder="Buscar..." />
-      <p-button icon="pi pi-plus" label="Novo" *ngIf="isLoginPage" />
-      <p-button
-        icon="pi pi-user"
-        label="Fazer Login"
-        *ngIf="!isLoginPage"
-        [rounded]="true"
-        [raised]="true"
-        [routerLink]="['/login-page']"
-      />
-      <button
-        pButton
-        [rounded]="true"
-        [raised]="true"
-        [routerLink]="['/customer-page']"
-      >
+    <ng-template #start>
+        <div class="angular-logo">
+            <img src="/images/logo.jpg" alt="logo" />
+        </div>
+        <nav class="shortcuts">
+            <a routerLink="/" class="link">Dashboard</a>
+            <a routerLink="/clientes" class="link">Clientes</a>
+            <a routerLink="/produtos" class="link">Produtos</a>
+            <a routerLink="/vendas" class="link">Vendas</a>
+        </nav>
+    </ng-template>
+    <ng-template #end>
+        <div class="actions">
+            <input pInputText type="text" placeholder="Buscar..." />
+            <p-button icon="pi pi-plus" label="Novo" *ngIf="isLoginPage" />
+            <p-button icon="pi pi-user" label="Fazer Login" *ngIf="!isLoginPage" [rounded]="true" [raised]="true" [routerLink]="['/login-page']" />
+            <button pButton [rounded]="true" [raised]="true" [routerLink]="['/customer-page']">
         Entrar na área do cliente
       </button>
-      <p-button label="Voltar" *ngIf="!isLoginPage"> </p-button>
-    </div>
-  </ng-template>
+            <p-button label="Voltar" *ngIf="isLoginPage" [routerLink]="['/main-page']">
+            </p-button>
+        </div>
+    </ng-template>
 </p-menubar>
-
-<!--
-  <main class="main">
-    <div class="content">
-      <div class="logoImg">
-        
-      </div>
-      <div class="shortcuts">
-        
-      </div>
-      <div class="actions">
-        
-      </div>
-    </div>
-    
-    <div class="content">
-      <div class="left-side">
-        <h1>Hello, {{ title }}</h1>
-      </div>
-      <div class="divider" role="separator" aria-label="Divider"></div>
-      <div class="right-side"></div>
-    </div>
-  </main>
-  -->
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 <router-outlet />
