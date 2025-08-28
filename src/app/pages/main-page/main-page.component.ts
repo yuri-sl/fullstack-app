@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
@@ -12,6 +12,8 @@ import { CarouselModule } from 'primeng/carousel';
 import { DividerModule } from 'primeng/divider';
 import { AccordionModule } from 'primeng/accordion';
 import { TabsModule } from 'primeng/tabs';
+import { Usuario, UsuarioService } from '../../usuario.service';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 let clientes = [
   { nome: 'Maria', email: 'maria@email.com' },
@@ -40,12 +42,27 @@ interface Product {
     SplitterModule,
     CarouselModule,
     CommonModule,
+    AutoCompleteModule,
   ],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss',
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit {
+  usuarios: Usuario[] = [];
   changeButtonState = false;
+
+  constructor(private usuarioService: UsuarioService) {}
+  ngOnInit(): void {
+    this.usuarioService.listarUsuarios().subscribe({
+      next: (data) => {
+        console.log('GET response: ', data);
+        this.usuarios = data;
+      },
+      error: (err) => {
+        console.error('Error fetching users:', err);
+      },
+    });
+  }
   products: Product[] = [
     {
       id: '1000',

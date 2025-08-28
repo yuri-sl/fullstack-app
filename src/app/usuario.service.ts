@@ -10,7 +10,7 @@ export interface Usuario {
   providedIn: 'root',
 })
 export class UsuarioService {
-  private apiUrl = 'http://localhost:8080//users';
+  private apiUrl = 'http:/localhost:8080/users';
 
   constructor(private http: HttpClient) {}
   cadastrar(usuario: Usuario): Observable<Usuario> {
@@ -18,5 +18,8 @@ export class UsuarioService {
   }
   edit(id: number, usuario: Usuario): Observable<Usuario> {
     return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
+  }
+  listarUsuarios(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}`);
   }
 }

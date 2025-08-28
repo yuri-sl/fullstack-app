@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { TopBarComponent } from '../../components/top-bar/top-bar.component';
+import { CommonModule } from '@angular/common';
+import { SideBarComponent } from '../../components/side-bar/side-bar.component';
+
 @Component({
   selector: 'app-customer-page',
-  imports: [TopBarComponent],
+  imports: [SideBarComponent, CommonModule],
   templateUrl: './customer-page.component.html',
   styleUrl: './customer-page.component.scss',
 })
