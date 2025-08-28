@@ -1,7 +1,8 @@
-<p>minha-pagina works!</p>
-<h1>Testando aqui um novo Header</h1>
+<div class="hero">
 
 <h1>Cadastro de usuário</h1>
+<p-button (click)="showDialogue()" label="Adicionar novo usuário"></p-button>
+<p-dialog header="Testando novo dialogo" [modal]="true" [(visible)]="visible">
 <form [formGroup]="usuarioForm" (ngSubmit)="enviarUsuario()">
   <label for="name">Nome:</label>
   <input id="name" formControlName="name" />
@@ -11,7 +12,7 @@
   <br /><br />
   <button type="submit">Enviar usuário</button>
 </form>
-
+</p-dialog>
 <h1>Visualizar Usuários no sistema</h1>
 
 <h1>Remover Usuário Cadastrado</h1>
@@ -30,3 +31,4 @@
   <br /><br />
   <button type="submit">Alterar usuário</button>
 </form>
+</div>

@@ -3,11 +3,13 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsuarioService, Usuario } from '../../usuario.service';
 import { HttpClientModule } from '@angular/common/http';
+import {DialogModule} from 'primeng/dialog';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-minha-pagina',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, DialogModule,ButtonModule],
   templateUrl: './minha-pagina.component.html',
   styleUrls: ['./minha-pagina.component.scss'],
 })
@@ -16,6 +18,7 @@ export class MinhaPaginaComponent implements OnInit {
   usuarioEditForm: FormGroup;
   editando = false;
   usuarioIdEditando: number | null = null;
+  visible: boolean = false;
 
   constructor(private fb: FormBuilder, private usuarioSerice: UsuarioService) {
     this.usuarioForm = this.fb.group({
@@ -55,5 +58,12 @@ export class MinhaPaginaComponent implements OnInit {
         console.error('Erro aconteceu: ', err);
       },
     });
+  }
+  showDialogue(){
+    if(this.visible){
+      this.visible = false;
+    }else{
+      this.visible=true;
+    }
   }
 }
