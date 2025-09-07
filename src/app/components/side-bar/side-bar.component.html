@@ -1,11 +1,13 @@
-<button (click)="enableSideBar()">Habilitar Visão da navBar</button> @if (showSideNavBar){
-<nav>
-    <div class="vertical-bar">
-        <p>side-bar works!</p>
-    </div>
+<button (click)="open = !open">Habilitar Visão da navBar</button>
+<div class="layout">
+  @if(open){
+  <nav class="sidebar" [class.is-open]="open">
+    <h2>Home</h2>
     <a>Visão Geral</a>
+    <h2>Informações</h2>
     <a>Meus pedidos</a>
     <a>Suporte/Contato</a>
     <a>Sair</a>
-</nav>
-}
+  </nav>
+  }
+</div>

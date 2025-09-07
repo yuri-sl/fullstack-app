@@ -1,34 +1,53 @@
+<app-side-bar> </app-side-bar>
 <div class="hero">
+  <div>
+    <button
+      pButton
+      (click)="alternateVisibility()"
+      label="Alternar visibilidade de usuários"
+    ></button>
+    @if (showControlUsers){
+    <div class="formulario">
+      <h1>Cadastro de usuário</h1>
+      <p-button
+        (click)="showDialogue()"
+        label="Adicionar novo usuário"
+      ></p-button>
+      <p-dialog
+        header="Testando novo dialogo"
+        [modal]="true"
+        [(visible)]="visible"
+      >
+        <form [formGroup]="usuarioForm" (ngSubmit)="enviarUsuario()">
+          <label for="name">Nome:</label>
+          <input id="name" formControlName="name" />
+          <br /><br />
+          <label for="age">Idade:</label>
+          <input id="age" formControlName="age" type="number" />
+          <br /><br />
+          <button type="submit">Enviar usuário</button>
+        </form>
+      </p-dialog>
+    </div>
+    }
+  </div>
+  <h1>Visualizar Usuários no sistema</h1>
 
-<h1>Cadastro de usuário</h1>
-<p-button (click)="showDialogue()" label="Adicionar novo usuário"></p-button>
-<p-dialog header="Testando novo dialogo" [modal]="true" [(visible)]="visible">
-<form [formGroup]="usuarioForm" (ngSubmit)="enviarUsuario()">
-  <label for="name">Nome:</label>
-  <input id="name" formControlName="name" />
-  <br /><br />
-  <label for="age">Idade:</label>
-  <input id="age" formControlName="age" type="number" />
-  <br /><br />
-  <button type="submit">Enviar usuário</button>
-</form>
-</p-dialog>
-<h1>Visualizar Usuários no sistema</h1>
+  <h1>Remover Usuário Cadastrado</h1>
 
-<h1>Remover Usuário Cadastrado</h1>
+  <button>Remover Usuário</button>
 
-<button>Remover Usuário</button>
-
-<h1>Alterar o Usuário cadastrado</h1>
-<form [formGroup]="usuarioEditForm" (ngSubmit)="alterarUsuario()">
-  <label for="id">Id:</label>
-  <input id="id" formControlName="id" type="number" />
-  <label for="name">Nome:</label>
-  <input id="name" formControlName="name" />
-  <br /><br />
-  <label for="age">Idade:</label>
-  <input id="age" formControlName="age" type="number" />
-  <br /><br />
-  <button type="submit">Alterar usuário</button>
-</form>
+  <h1>Alterar o Usuário cadastrado</h1>
+  <form [formGroup]="usuarioEditForm" (ngSubmit)="alterarUsuario()">
+    <label for="id">Id:</label>
+    <input id="id" formControlName="id" type="number" />
+    <label for="name">Nome:</label>
+    <input id="name" formControlName="name" />
+    <br /><br />
+    <label for="age">Idade:</label>
+    <input id="age" formControlName="age" type="number" />
+    <br /><br />
+    <button type="submit">Alterar usuário</button>
+  </form>
 </div>
+<app-dataview-produtos> </app-dataview-produtos>

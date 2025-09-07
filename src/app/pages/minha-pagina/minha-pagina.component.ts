@@ -3,13 +3,25 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { UsuarioService, Usuario } from '../../usuario.service';
 import { HttpClientModule } from '@angular/common/http';
-import {DialogModule} from 'primeng/dialog';
+import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
+import { DataviewProdutosComponent } from '../../components/dataview-produtos/dataview-produtos.component';
+import { SideBarComponent } from '../../components/side-bar/side-bar.component';
 
 @Component({
   selector: 'app-minha-pagina',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, DialogModule,ButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    DialogModule,
+    ButtonModule,
+    DataViewModule,
+    DataviewProdutosComponent,
+    SideBarComponent,
+  ],
   templateUrl: './minha-pagina.component.html',
   styleUrls: ['./minha-pagina.component.scss'],
 })
@@ -19,6 +31,7 @@ export class MinhaPaginaComponent implements OnInit {
   editando = false;
   usuarioIdEditando: number | null = null;
   visible: boolean = false;
+  showControlUsers: boolean = false;
 
   constructor(private fb: FormBuilder, private usuarioSerice: UsuarioService) {
     this.usuarioForm = this.fb.group({
@@ -59,11 +72,18 @@ export class MinhaPaginaComponent implements OnInit {
       },
     });
   }
-  showDialogue(){
-    if(this.visible){
+  showDialogue() {
+    if (this.visible) {
       this.visible = false;
-    }else{
-      this.visible=true;
+    } else {
+      this.visible = true;
+    }
+  }
+  alternateVisibility() {
+    if (this.showControlUsers) {
+      this.showControlUsers = false;
+    } else {
+      this.showControlUsers = true;
     }
   }
 }

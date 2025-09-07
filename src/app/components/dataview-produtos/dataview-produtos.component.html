@@ -1,0 +1,13 @@
+<p>dataview-produtos works!</p>
+<p-dataView [value]="products" layout="grid">
+  <ng-template let-product pTemplate="listItem">
+    <div class="p-dataview-item">
+      <img [src]="product.image" alt="{{ product.name }}" width="100" />
+      <div>
+        <h4>{{ product.name }}</h4>
+        <p>{{ product.description }}</p>
+        <strong>${{ product.price }}</strong>
+      </div>
+    </div>
+  </ng-template>
+</p-dataView>

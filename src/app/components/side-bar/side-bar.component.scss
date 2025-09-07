@@ -1,16 +1,46 @@
-nav {
-    background-color: rgb(16, 16, 16);
-    height: 100%;
-    width: 20rem;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    a {
-        font-size: larger;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        .active {
-            background-color: yellow;
-        }
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background-color: rgb(16, 16, 16);
+  height: 100vh;
+  width: 20rem;
+  flex: 0 0 20rem;
+  z-index: 1;
+  display: flex;
+  transform: translateX(-100%);
+  /* começa escondida */
+  flex-direction: column;
+  transition: transform 200ms ease-in-out;
+  a {
+    font-size: larger;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .active {
+      background-color: yellow;
+      color: #111;
+      border-radius: 0.5rem;
+      padding: 0.25rem, 0.5rem;
     }
+  }
+  &.is-open {
+    transform: translateX(0); // aparece
+  }
+}
+
+/* área de conteúdo ocupa o resto */
+
+.content {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+/* OPCIONAL: em telas largas, pode manter a sidebar sempre visível */
+
+@media (min-width: 992px) {
+  .sidebar {
+    transform: translateX(0);
+  }
 }

@@ -1,3 +1,14 @@
 <div class="content">
-    <app-side-bar></app-side-bar>
+  <div class="container">
+    <div class="left">
+      <app-side-bar></app-side-bar>
+    </div>
+    <div class="right">
+      <div>
+        <p-megaMenu [model]="menuItemsList" class="megaMenuStyle">
+          <ng-template pTemplate="start"> </ng-template>
+        </p-megaMenu>
+      </div>
+    </div>
+  </div>
 </div>

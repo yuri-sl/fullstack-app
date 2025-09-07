@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SideBarComponent {
   showSideNavBar: boolean = true;
+  open = true;
 
   enableSideBar() {
     if (this.showSideNavBar) {
