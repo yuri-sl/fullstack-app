@@ -8,6 +8,36 @@
         <p-megaMenu [model]="menuItemsList" class="megaMenuStyle">
           <ng-template pTemplate="start"> </ng-template>
         </p-megaMenu>
+        <p-table
+          [value]="listaClientes"
+          [tableStyle]="{ 'min-width': '50rem' }"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              <th colspan="6">Lista de clientes</th>
+            </tr>
+            <tr>
+              <th>ID</th>
+              <th>
+                <p-checkbox [binary]="true"></p-checkbox>
+              </th>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>CPF</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-listaClientes>
+            <tr>
+              <td>{{ listaClientes.idCliente }}</td>
+              <td>
+                <p-checkbox></p-checkbox>
+              </td>
+              <td>{{ listaClientes.nome }}</td>
+              <td>{{ listaClientes.email }}</td>
+              <td>{{ listaClientes.cpf }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
       </div>
     </div>
   </div>

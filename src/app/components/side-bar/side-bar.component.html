@@ -8,6 +8,8 @@
     <a>Meus pedidos</a>
     <a>Suporte/Contato</a>
     <a>Sair</a>
+    <button (click)="open = !open">Fechar Side Bar</button>
   </nav>
-  }
+  } @if(!open){
+  <button (click)="open = !open">Habilitar Visão da navBar</button> }
 </div>

@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
+import Lara from '@primeuix/themes/lara';
 
 import { routes } from './app.routes';
 import {
@@ -24,7 +24,12 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(ReactiveFormsModule, HttpClientModule),
     provideAnimationsAsync(),
     providePrimeNG({
-      theme: { preset: Aura },
+      theme: {
+        preset: Lara,
+        options: {
+          darkModeSelector: '.my-app-dark',
+        },
+      },
     }),
   ],
 };
