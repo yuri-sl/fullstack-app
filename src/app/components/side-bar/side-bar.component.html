@@ -1,4 +1,4 @@
-<button (click)="open = !open">Habilitar Visão da navBar</button>
+@if(!open){ <button (click)="open = !open" pButton icon="pi pi-bars"></button>}
 <div class="layout">
   @if(open){
   <nav class="sidebar" [class.is-open]="open">
@@ -10,6 +10,5 @@
     <a>Sair</a>
     <button (click)="open = !open">Fechar Side Bar</button>
   </nav>
-  } @if(!open){
-  <button (click)="open = !open">Habilitar Visão da navBar</button> }
+  }
 </div>
