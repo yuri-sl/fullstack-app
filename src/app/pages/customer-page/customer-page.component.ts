@@ -71,9 +71,11 @@ export class CustomerPageComponent implements OnInit {
       },
       {
         label: 'Pedidos',
+        command: () => this.setActiveView('pedidos'),
       },
       {
         label: 'Produtos',
+        command: () => this.setActiveView('produtos'),
       },
       {
         label: 'Agendamentos',
