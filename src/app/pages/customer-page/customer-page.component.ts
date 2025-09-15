@@ -7,7 +7,8 @@ import { MenuItem, MegaMenuItem } from 'primeng/api';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
-
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ViewDetalhesProdutoComponent } from '../../components/modalDetalhes/detalhesProduto/view-detalhes-produto/view-detalhes-produto.component';
 type ViewKey =
   | 'pedidos'
   | 'agendamentos'
@@ -28,6 +29,7 @@ type ViewKey =
   ],
   templateUrl: './customer-page.component.html',
   styleUrl: './customer-page.component.scss',
+  providers: [DialogService],
 })
 export class CustomerPageComponent implements OnInit {
   listaProdutos: any[] = [];
@@ -40,6 +42,10 @@ export class CustomerPageComponent implements OnInit {
   enableListaFuncionarios: boolean = false;
 
   currentView: ViewKey = 'clientes';
+
+  ref: DynamicDialogRef | undefined;
+
+  constructor(public dialogService: DialogService) {}
 
   ngOnInit(): void {
     this.menuItemsList = [
@@ -136,8 +142,52 @@ export class CustomerPageComponent implements OnInit {
         unidade: 'Torre do paraíso',
       },
     ];
+    this.listaProdutos = [
+      {
+        code: 'f23450gas',
+        name: 'Curse of Strahd',
+        image: 'strahd.png',
+        price: '$35.00',
+        category: 'Game Book',
+        Reviews: '4.5',
+        Status: 'INSTOCK',
+      },
+      {
+        code: 'f23450gds',
+        name: 'Eragon',
+        image: 'Saphira.png',
+        price: '$25.00',
+        category: 'Game Book',
+        Reviews: '4.6',
+        Status: 'INSTOCK',
+      },
+      {
+        code: 'f23450ghs',
+        name: 'Brisingr',
+        image: 'Brisingr.png',
+        price: '$23.00',
+        category: 'Book',
+        Reviews: '4.3',
+        Status: 'INSTOCK',
+      },
+    ];
   }
   setActiveView(view: ViewKey) {
     this.currentView = view;
+  }
+  show() {
+    this.ref = this.dialogService.open(ViewDetalhesProdutoComponent, {
+      header: 'Visualizar informações do produto',
+      width: '680px',
+
+      modal: true,
+      closable: true,
+      dismissableMask: true,
+      closeOnEscape: true,
+
+      contentStyle: {
+        overflow: 'auto',
+      },
+    });
   }
 }

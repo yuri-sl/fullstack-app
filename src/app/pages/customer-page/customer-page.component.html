@@ -1,72 +1,163 @@
 <div class="content">
-    <div class="container">
-        <div class="left">
-            <app-side-bar></app-side-bar>
-        </div>
-        <div class="right">
-            <div>
-                <p-megaMenu [model]="menuItemsList" class="megaMenuStyle">
-                    <ng-template pTemplate="start"> </ng-template>
-                </p-megaMenu>
-                <ng-container [ngSwitch]="currentView">
-                    <p-table *ngSwitchCase="'clientes'" [value]="listaClientes" [tableStyle]="{ 'min-width': '50rem' }">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th colspan="6">Lista de clientes</th>
-                            </tr>
-                            <tr>
-                                <th>ID</th>
-                                <th>
-                                    <p-checkbox [binary]="true"></p-checkbox>
-                                </th>
-                                <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>CPF</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-listaClientes>
-                            <tr>
-                                <td>{{ listaClientes.idCliente }}</td>
-                                <td>
-                                    <p-checkbox></p-checkbox>
-                                </td>
-                                <td>{{ listaClientes.nome }}</td>
-                                <td>{{ listaClientes.email }}</td>
-                                <td>{{ listaClientes.cpf }}</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                    <p-table *ngSwitchCase="'funcionarios'" [value]="listaFuncionarios" [tableStyle]="{ 'min-width': '50rem' }">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th colspan="7">Lista de funcionários</th>
-                            </tr>
-                            <tr>
-                                <th>ID</th>
-                                <th>
-                                    <p-checkbox [binary]="true"></p-checkbox>
-                                </th>
-                                <th>Nome</th>
-                                <th>E-mail</th>
-                                <th>Cargo</th>
-                                <th>Unidade</th>
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-listaFuncionarios>
-                            <tr>
-                                <td>{{ listaFuncionarios.idFuncionario }}</td>
-                                <td>
-                                    <p-checkbox></p-checkbox>
-                                </td>
-                                <td>{{ listaFuncionarios.nome }}</td>
-                                <td>{{ listaFuncionarios.email }}</td>
-                                <td>{{ listaFuncionarios.cargo }}</td>
-                                <td>{{ listaFuncionarios.unidade }}</td>
-                            </tr>
-                        </ng-template>
-                    </p-table>
-                </ng-container>
-            </div>
-        </div>
+  <div class="container">
+    <div class="left">
+      <app-side-bar></app-side-bar>
     </div>
+    <div class="right">
+      <div>
+        <p-megaMenu [model]="menuItemsList" class="megaMenuStyle">
+          <ng-template pTemplate="start"> </ng-template>
+        </p-megaMenu>
+        <ng-container [ngSwitch]="currentView">
+          <p-table
+            *ngSwitchCase="'clientes'"
+            [value]="listaClientes"
+            [tableStyle]="{ 'min-width': '50rem' }"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th colspan="6">Lista de clientes</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>
+                  <p-checkbox [binary]="true"></p-checkbox>
+                </th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>CPF</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-listaClientes>
+              <tr>
+                <td>{{ listaClientes.idCliente }}</td>
+                <td>
+                  <p-checkbox></p-checkbox>
+                </td>
+                <td>{{ listaClientes.nome }}</td>
+                <td>{{ listaClientes.email }}</td>
+                <td>{{ listaClientes.cpf }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <p-table
+            *ngSwitchCase="'funcionarios'"
+            [value]="listaFuncionarios"
+            [tableStyle]="{ 'min-width': '50rem' }"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th colspan="7">Lista de funcionários</th>
+              </tr>
+              <tr>
+                <th>ID</th>
+                <th>
+                  <p-checkbox [binary]="true"></p-checkbox>
+                </th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Cargo</th>
+                <th>Unidade</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-listaFuncionarios>
+              <tr>
+                <td>{{ listaFuncionarios.idFuncionario }}</td>
+                <td>
+                  <p-checkbox></p-checkbox>
+                </td>
+                <td>{{ listaFuncionarios.nome }}</td>
+                <td>{{ listaFuncionarios.email }}</td>
+                <td>{{ listaFuncionarios.cargo }}</td>
+                <td>{{ listaFuncionarios.unidade }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+          <p-table
+            *ngSwitchCase="'produtos'"
+            [value]="listaProdutos"
+            [tableStyle]="{ 'min-width': '50rem' }"
+          >
+            <ng-template pTemplate="header">
+              <tr>
+                <th colspan="8">Lista de Produtos</th>
+                <th colspan="2">
+                  <div>
+                    <span class="p-input-icon-left">
+                      <i class="pi pi-search">
+                        <input
+                          pInputText
+                          type="text"
+                          placeholder="Buscar por produtos"
+                        />
+                      </i>
+                    </span>
+                  </div>
+                </th>
+              </tr>
+              <tr>
+                <th pSortableColumn="codigo">
+                  Código produto
+                  <p-sortIcon field="codigo"></p-sortIcon>
+                </th>
+                <th>
+                  <p-checkbox [binary]="true"></p-checkbox>
+                </th>
+                <th pSortableColumn="titulo">
+                  Título
+                  <p-sortIcon field="titulo"></p-sortIcon>
+                </th>
+
+                <th>Imagem</th>
+                <th pSortableColumn="preço">
+                  Preço
+                  <p-sortIcon field="preço"></p-sortIcon>
+                </th>
+                <th pSortableColumn="categoria">
+                  Categoria
+
+                  <p-sortIcon field="categoria"></p-sortIcon>
+                </th>
+                <th pSortableColumn="reviews">
+                  Reviews
+                  <p-sortIcon field="reviews"></p-sortIcon>
+                </th>
+                <th pSortableColumn="status">
+                  Status
+                  <p-sortIcon field="status"></p-sortIcon>
+                </th>
+                <th colspan="2">Ações</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-listaProdutos>
+              <tr>
+                <td>{{ listaProdutos.code }}</td>
+                <td>
+                  <p-checkbox></p-checkbox>
+                </td>
+                <td>
+                  {{ listaProdutos.name }}
+                </td>
+                <td>{{ listaProdutos.image }}</td>
+                <td>{{ listaProdutos.price }}</td>
+                <td>{{ listaProdutos.category }}</td>
+                <td>{{ listaProdutos.Reviews }}</td>
+                <td>{{ listaProdutos.Status }}</td>
+                <td>
+                  <i
+                    class="pi pi-pencil"
+                    style="color: blue"
+                    (click)="show()"
+                  ></i>
+                </td>
+                <td>
+                  <i class="pi pi-trash" style="color: red"></i>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>
