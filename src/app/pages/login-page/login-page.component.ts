@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
 import {
@@ -8,19 +8,37 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { UsuarioService } from '../../usuario.service';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [ButtonModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    ButtonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    InputTextModule,
+    CheckboxModule,
+    ToastModule,
+    FormsModule,
+  ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent {
-  loginForm!: FormGroup; // só declaramos
+  loginForm!: FormGroup;
+  messageService = inject(MessageService);
 
   loading = false;
   apiError: string | null = null;
+
+  user = {
+    email: '',
+    password: '',
+  };
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService) {
     this.loginForm = this.fb.nonNullable.group({
@@ -35,7 +53,25 @@ export class LoginPageComponent {
       ],
     });
   }
-
+  onSubmit(form: any) {
+    if (form.valid) {
+      this.messageService.add({
+        severity: 'success',
+        summary: 'Sucess',
+        detail: 'Formulário enviado com sucesso!',
+        life: 3000,
+      });
+      form.resetForm();
+    } else {
+      this.messageService.add({
+        severity: 'Failed',
+        summary: 'Failed',
+        detail: 'Falha em enviar o formulário!',
+        life: 3000,
+      });
+    }
+  }
+  /*
   submit() {
     this.apiError = null;
     if (this.loginForm.invalid) {
@@ -47,4 +83,5 @@ export class LoginPageComponent {
     console.log(dadosLogin);
     this.loading = false;
   }
+    */
 }
