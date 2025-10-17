@@ -1,9 +1,39 @@
-<div class="userInfo">
-  <img src="" alt="Imagem de usuario" />
-  <label>Minhas informações pessoais</label>
-  <div class="userData">
-    <label>Nome de usuário</label>
-    <input />
-    <label></label>
+<div class="main-sections">
+  <div class="left-container">
+    <div class="userInfo">
+      <img src="" alt="Imagem de usuario" />
+      <label>Minhas informações pessoais</label>
+      <div class="userData">
+        <label>Nome de usuário</label>
+        <input />
+      </div>
+      <div class="userData">
+        <label>E-mail</label>
+        <input />
+      </div>
+      <div class="userData">
+        <label>Senha</label>
+        <input />
+      </div>
+      @if(!isEditing){
+        <button pButton label="Alterar informações" (click)="enableEdit()"></button>
+      }
+      @if(isEditing){
+          <div class="editActions">
+            <button pButton label="Cancelar" (click)="enableEdit()"></button>
+            <button pButton label="Salvar alterações" (click)="enableEdit()"></button>
+        </div>
+        }
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="userActions">
+        <div class="actions">
+          <button pButton label="Métodos de pagamento" ></button>
+          <button pButton label="Endereços salvos"> </button>
+          <button pButton label="Histórico de compras"></button>
+          <button pButton label="Acessar a loja"></button>
+        </div>
+    </div>
   </div>
 </div>

@@ -4,7 +4,7 @@ import { SideBarComponent } from '../../components/side-bar/side-bar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MenuItem, MegaMenuItem } from 'primeng/api';
-import { FullCalendarModule } from '@fullcalendar/angular';
+//import { FullCalendarModule } from '@fullcalendar/angular';
 import { TableModule } from 'primeng/table';
 import { CheckboxModule } from 'primeng/checkbox';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
@@ -23,7 +23,6 @@ type ViewKey =
     CommonModule,
     MenubarModule,
     MegaMenuModule,
-    FullCalendarModule,
     TableModule,
     CheckboxModule,
   ],

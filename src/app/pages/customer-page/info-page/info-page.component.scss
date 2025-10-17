@@ -1,8 +1,34 @@
-.userInfo {
-  background-color: #dadadd;
-  border: 1px solid gray;
-  width: fit-content;
-  height: fit-content;
-  flex-direction: column;
+.main-sections{
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .left-container{
+    justify-content: space-between;
+    .userInfo {
+      background-color: #dadadd;
+      border: 1px solid gray;
+      width: 400px;
+      height: fit-content;
+      flex-direction: column;
+      display: flex;
+      input{
+        gap: 15px;
+      }
+  }
+    .userData{
+      padding-top: 10px;
+    }
+  }
+  .userActions{
+    background-color: #dadadd;
+    border: 1px solid gray;
+    width: 400px;
+    height: fit-content;
+    flex-direction: column;
+    display: flex;
+    input{
+      gap: 15px;
+    }
+  
+  }
 }
